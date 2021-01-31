@@ -10,6 +10,8 @@ const App = () => {
     <div className="app">
       <Nav />
       <Song />
+      <Player />
+      <Library />
     </div>
   );
 }
