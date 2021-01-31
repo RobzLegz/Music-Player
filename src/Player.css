@@ -1,8 +1,9 @@
 .player {
   min-height: 20vh;
-  display: grid;
-  place-items: center;
-  margin-top: 10vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 110%);
 }
 .time-control {
   width: 50%;

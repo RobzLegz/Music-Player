@@ -1,11 +1,17 @@
 .song-container {
-  width: 100%;
-  min-height: 20vh;
-  display: grid;
-  place-items: center;
-  margin-top: 10vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  text-align: center;
 }
 .song-container > img {
   border-radius: 50%;
   height: 400px;
+}
+.song-container > h2 {
+  color: #333;
+}
+.song-container > h3 {
+  color: #555;
 }

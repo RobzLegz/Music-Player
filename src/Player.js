@@ -5,7 +5,7 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 
-const Player = ({setSongs, currentSong, songs, audioRef, isPlaying, setIsPlaying, setSongInfo, songInfo, setCurrentSong}) => {
+const Player = ({setSongs, currentSong, songs, audioRef, isPlaying, setIsPlaying, setCurrentSong}) => {
 
     const activeLibraryHan = (nextPrev) => {
         const newSongs = songs.map((song) => {
@@ -23,7 +23,6 @@ const Player = ({setSongs, currentSong, songs, audioRef, isPlaying, setIsPlaying
         });
         setSongs(newSongs);
     }
-
     const playSongHan = () => {
         if(isPlaying){
             audioRef.current.pause();
@@ -32,19 +31,7 @@ const Player = ({setSongs, currentSong, songs, audioRef, isPlaying, setIsPlaying
             setIsPlaying(!isPlaying);
             audioRef.current.play();
         }
-    };
-
-    const getTime = (time) => {
-        return(
-            Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
-        );
-    };
-
-    const dragHan = (e) => {
-        setSongInfo({ ...songInfo, current: e.target.value });
-        audioRef.current.currentTime = e.target.value;
-    };
-
+    };    
     const skipSongHan = async (direction) => {
         let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
         if(direction === "skip-forward"){
@@ -62,28 +49,9 @@ const Player = ({setSongs, currentSong, songs, audioRef, isPlaying, setIsPlaying
             activeLibraryHan(songs[(currentIndex - 1) % songs.length]);
         }
         if (isPlaying) audioRef.current.play();
-    };
-
-    const trackAnim = {
-        transform: `translateX(${songInfo.animationPercentage}%)`
-    };
-
+    };    
     return (
         <div className="player">
-            <div className="time-control">
-                <p>{songInfo.duration ? getTime(songInfo.currentTime) : "0:00"}</p>
-                <div style={{background: `linear-gradient(to right, ${currentSong.color[0]},${currentSong.color[1]})`, }} className="track">
-                    <input
-                        onChange={dragHan}
-                        min={0} 
-                        max={songInfo.duration || 0} 
-                        value={songInfo.currentTime} 
-                        type="range"
-                    />
-                    <div style={trackAnim} className="animate-track"></div>
-                </div>
-                <p>{getTime(songInfo.duration)}</p>
-            </div>
             <div className="play-control">
                 <SkipPreviousIcon onClick={() => skipSongHan('skip-back')} className="skipIcon" />
                 <PlayCircleFilledIcon onClick={playSongHan} className="playButton" />
