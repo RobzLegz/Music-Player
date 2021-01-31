@@ -1,0 +1,18 @@
+.nav {
+  height: 70px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  background-color: #531253;
+  align-items: center;
+}
+.nav > h1 {
+  font-family: "Hachi Maru Pop", cursive;
+  color: #47e5bc;
+}
+.library-toggle {
+  font-size: 60px !important;
+  cursor: pointer;
+  color: #47e5bc !important;
+  display: none !important;
+}
