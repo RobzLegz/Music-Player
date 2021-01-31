@@ -2,8 +2,8 @@ import React from 'react';
 import "./Player.css";
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
-import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import {faPlay, faPause} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Player = ({setSongs, currentSong, songs, audioRef, isPlaying, setIsPlaying, setCurrentSong}) => {
 
@@ -53,9 +53,9 @@ const Player = ({setSongs, currentSong, songs, audioRef, isPlaying, setIsPlaying
     return (
         <div className="player">
             <div className="play-control">
-                <SkipPreviousIcon onClick={() => skipSongHan('skip-back')} className="skipIcon" />
-                <PlayCircleFilledIcon onClick={playSongHan} className="playButton" />
-                <SkipNextIcon onClick={() => skipSongHan("skip-forward")} className="skipIcon" />
+                <SkipPreviousIcon style={{cursor:"pointer", color:"#531253"}} onClick={() => skipSongHan('skip-back')} className="skipIcon" />
+                <FontAwesomeIcon onClick={playSongHan} style={{cursor:"pointer", color:"#531253",margin:"0 20px"}} className="play" size="3x" icon={isPlaying ? faPause : faPlay}/>
+                <SkipNextIcon style={{cursor:"pointer", color:"#531253"}} onClick={() => skipSongHan("skip-forward")} className="skipIcon" />
             </div>
         </div>
     );
