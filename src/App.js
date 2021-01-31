@@ -35,17 +35,19 @@ const App = () => {
   return (
     <div className="app">
       <Nav songLibraryStatus={songLibraryStatus} setSongLibraryStatus={setSongLibraryStatus} />
-      <Song currentSong={currentSong} />
-      <Player 
-        setSongs={setSongs}
-        setCurrentSong={setCurrentSong}
-        songs={songs}
-        audioRef={audioRef} 
-        isPlaying={isPlaying} 
-        setIsPlaying={setIsPlaying} 
-        currentSong={currentSong}
-        setSongInfo={setSongInfo}
-        songInfo={songInfo}/>
+      <div className="songContainer">
+        <Song currentSong={currentSong} />
+        <Player 
+          setSongs={setSongs}
+          setCurrentSong={setCurrentSong}
+          songs={songs}
+          audioRef={audioRef} 
+          isPlaying={isPlaying} 
+          setIsPlaying={setIsPlaying} 
+          currentSong={currentSong}
+          setSongInfo={setSongInfo}
+          songInfo={songInfo}/>
+      </div>
       <Library 
         setSongs={setSongs}
         songs={songs} 

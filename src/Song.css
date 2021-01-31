@@ -1,0 +1,11 @@
+.song-container {
+  width: 100%;
+  min-height: 20vh;
+  display: grid;
+  place-items: center;
+  margin-top: 10vh;
+}
+.song-container > img {
+  border-radius: 50%;
+  height: 400px;
+}
