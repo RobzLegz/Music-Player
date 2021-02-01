@@ -8,6 +8,7 @@
 .song-container > img {
   border-radius: 50%;
   height: 400px;
+  pointer-events: none;
 }
 .song-container > h2 {
   color: #333;
@@ -21,7 +22,7 @@
   }
 }
 .spiningImage {
-  animation: spinCover 5s ease infinite;
+  animation: spinCover 10s ease infinite;
 }
 @keyframes spinCover {
   0% {

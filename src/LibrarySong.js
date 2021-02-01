@@ -27,7 +27,7 @@ const LibrarySong = ({song, songs, setCurrentSong, id, audioRef, isPlaying, setS
     };
 
     return (
-        <div className={`librarySong ${song.active ? "selectedLibrarySong" : ""}`}>
+        <div onClick={selectLibrarySongHan} className={`librarySong ${song.active ? "selectedLibrarySong" : ""}`}>
             <img className="libraryAlbumImage" src={song.cover} alt={song.name}/>
             <div className="song-desc">
                 <h3>{song.name}</h3>
